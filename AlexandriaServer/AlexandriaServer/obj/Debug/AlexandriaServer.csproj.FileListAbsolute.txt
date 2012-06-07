@@ -1,0 +1,6 @@
+W:\Users\ir8ll_000\Documents\Visual Studio 2012\Projects\AlexandriaServer\AlexandriaServer\bin\Debug\AlexandriaServer.exe.config
+W:\Users\ir8ll_000\Documents\Visual Studio 2012\Projects\AlexandriaServer\AlexandriaServer\obj\Debug\AlexandriaServer.csprojResolveAssemblyReference.cache
+W:\Users\ir8ll_000\Documents\Visual Studio 2012\Projects\AlexandriaServer\AlexandriaServer\bin\Debug\AlexandriaServer.exe
+W:\Users\ir8ll_000\Documents\Visual Studio 2012\Projects\AlexandriaServer\AlexandriaServer\bin\Debug\AlexandriaServer.pdb
+W:\Users\ir8ll_000\Documents\Visual Studio 2012\Projects\AlexandriaServer\AlexandriaServer\obj\Debug\AlexandriaServer.exe
+W:\Users\ir8ll_000\Documents\Visual Studio 2012\Projects\AlexandriaServer\AlexandriaServer\obj\Debug\AlexandriaServer.pdb
