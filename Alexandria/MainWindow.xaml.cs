@@ -29,5 +29,11 @@ namespace Alexandria
 
             alexandria.startUp();
         }
+
+        private void startTransfer_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            //alexandria.client.selectFile("test2.png", "");
+            alexandria.client.fileGet("test.png");
+        }
     }
 }

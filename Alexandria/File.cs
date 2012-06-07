@@ -56,7 +56,7 @@ namespace Alexandria
 
         long getSize()
         {
-            FileInfo file = new FileInfo(downloadLocation + Name);
+            FileInfo file = new FileInfo(Name);
             return file.Length;
         }
     }

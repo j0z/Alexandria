@@ -13,8 +13,8 @@ namespace Alexandria
     {
         
         //IPAddress localIP = IPAddress.Broadcast;
-        static readonly IPAddress Any;
-        TcpListener tcpListener = new TcpListener(Any, 8080);
+        //static readonly IPAddress Any;
+        TcpListener tcpListener = new TcpListener(8080);
         File file;
         char[] seperators = {':'};
 
@@ -38,7 +38,7 @@ namespace Alexandria
                 if (commands[0].Contains("GET"))
                 {
                     file = new File(commands[1], fileLocation);
-                    FileStream fs = new FileStream(fileLocation, FileMode.Open);
+                    FileStream fs = new FileStream(commands[1], FileMode.Open);
 
                     int currentPos = 0;
 
@@ -48,6 +48,7 @@ namespace Alexandria
                         int data = fs.Read(bytes, currentPos, 16);
 
                         stream.Write(bytes, 0, 16);
+                        currentPos += 16;
                     }
                 }
             }

@@ -12,12 +12,18 @@ namespace Alexandria
     {
 
         public Config config = new Config();
+        public Client client;
+        //public Server server;
 
         public static string currentServer = "localhost";
 
         public void startUp()
         {
             readConfig();
+            client = new Client();
+            //server = new Server();
+            //server.runServer();
+            
         }
 
         public void readConfig()
