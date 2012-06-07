@@ -1,0 +1,15 @@
+W:\Users\ir8ll_000\Documents\Visual Studio 2012\Projects\Alexandria\Alexandria\bin\Debug\Alexandria.exe.config
+W:\Users\ir8ll_000\Documents\Visual Studio 2012\Projects\Alexandria\Alexandria\obj\Debug\Alexandria.csprojResolveAssemblyReference.cache
+W:\Users\ir8ll_000\Documents\Visual Studio 2012\Projects\Alexandria\Alexandria\obj\Debug\MainWindow.baml
+W:\Users\ir8ll_000\Documents\Visual Studio 2012\Projects\Alexandria\Alexandria\obj\Debug\MainWindow.g.cs
+W:\Users\ir8ll_000\Documents\Visual Studio 2012\Projects\Alexandria\Alexandria\obj\Debug\App.g.cs
+W:\Users\ir8ll_000\Documents\Visual Studio 2012\Projects\Alexandria\Alexandria\obj\Debug\Alexandria_MarkupCompile.cache
+W:\Users\ir8ll_000\Documents\Visual Studio 2012\Projects\Alexandria\Alexandria\obj\Debug\Alexandria.g.resources
+W:\Users\ir8ll_000\Documents\Visual Studio 2012\Projects\Alexandria\Alexandria\obj\Debug\Alexandria.Properties.Resources.resources
+W:\Users\ir8ll_000\Documents\Visual Studio 2012\Projects\Alexandria\Alexandria\obj\Debug\Alexandria.csproj.GenerateResource.Cache
+W:\Users\ir8ll_000\Documents\Visual Studio 2012\Projects\Alexandria\Alexandria\bin\Debug\Alexandria.exe
+W:\Users\ir8ll_000\Documents\Visual Studio 2012\Projects\Alexandria\Alexandria\bin\Debug\Alexandria.pdb
+W:\Users\ir8ll_000\Documents\Visual Studio 2012\Projects\Alexandria\Alexandria\bin\Debug\Newtonsoft.Json.dll
+W:\Users\ir8ll_000\Documents\Visual Studio 2012\Projects\Alexandria\Alexandria\bin\Debug\Newtonsoft.Json.xml
+W:\Users\ir8ll_000\Documents\Visual Studio 2012\Projects\Alexandria\Alexandria\obj\Debug\Alexandria.exe
+W:\Users\ir8ll_000\Documents\Visual Studio 2012\Projects\Alexandria\Alexandria\obj\Debug\Alexandria.pdb
