@@ -18,7 +18,7 @@ namespace Alexandria
         public File(string name, string downloadLocation)
         {
             this.Name = name;
-            this.totalfileSize = getSize();
+            //this.totalfileSize = getSize();
             this.currentfileSize = 0L;
             this.downloadLocation = downloadLocation;
             this.finished = false;
@@ -54,10 +54,10 @@ namespace Alexandria
                 return false;
         }
 
-        long getSize()
+        /*long getSize()
         {
             FileInfo file = new FileInfo(Name);
             return file.Length;
-        }
+        }*/
     }
 }

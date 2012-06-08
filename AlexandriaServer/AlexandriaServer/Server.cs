@@ -53,20 +53,26 @@ namespace AlexandriaServer
                 {
                     Console.WriteLine("Getting File! \n" + commands[1]+"test");
                     //file = new File(commands[1], fileLocation);
-                    FileStream fs = new FileStream(commands[1].Replace("\n", ""), FileMode.Open);
+                    FileStream fs = new FileStream(commands[1], FileMode.Open);
 
                     int currentPos = 0;
 
-                    while (currentPos < fs.Length)
-                    {
-                        byte[] bytes = new byte[16];
-                        int data = fs.Read(bytes, currentPos, 16);
+                    Console.WriteLine(fs.Length);
 
-                        Console.WriteLine(bytes.ToString());
-                        stream.Write(bytes, 0, 16);
-                        currentPos += 16;
-                        if (currentPos >= fs.Length)
+                    while (fileComplete==false)
+                    {
+                        //Console.WriteLine();
+                        byte[] bytes = new byte[fs.Length];
+                        int data = fs.Read(bytes, 0, (int)fs.Length);
+
+                        Console.WriteLine(Convert.ToString(bytes));
+                        stream.Write(bytes, 0, (int)fs.Length);
+                        //currentPos += 16;
+                        //if (currentPos >= fs.Length)
+                        //{
+                            Console.WriteLine("File Complete!");
                             fileComplete = true;
+                        //}
 
                     }
 

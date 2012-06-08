@@ -12,17 +12,13 @@ namespace Alexandria
     {
         TcpClient tcpClient = new TcpClient(AlexandriaMain.currentServer, 8080);
 
-        File file = new File("test.png", "");
-
-        public void selectFile(string fileName, string downloadLocation)
-        {
-            //file = new File("file2.png", downloadLocation);
-        }
+        
 
         public void fileGet(string fileName)
         {
             NetworkStream ns = tcpClient.GetStream();
             StreamWriter sw = new StreamWriter(ns);
+            File file = new File("test.png", "");
 
             sw.Write("GET:" + fileName);
             sw.Flush();
@@ -35,6 +31,8 @@ namespace Alexandria
             ns.Read(buf, 0, buf.Length);
 
             file.Write(buf);
+            sw.Close();
+            ns.Close();
         }
     }
 }
