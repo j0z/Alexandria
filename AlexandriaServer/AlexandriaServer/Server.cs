@@ -11,22 +11,18 @@ namespace AlexandriaServer
 {
     class Server
     {
-
-        //IPAddress localIP = IPAddress.Broadcast;
-        //static readonly IPAddress Any;
         TcpListener tcpListener = new TcpListener(8080);
-        //File file;
+
         char[] seperators = { ':' };
 
         string fileLocation = "\\files";
 
         public void runServer()
         {
+            Console.WriteLine("Alexandria-Server 0.02a \n Written by: \n j0z");
             Console.WriteLine("Starting server...");
             tcpListener.Start();
             Console.WriteLine("Server Started!");
-            //Byte[] bytes = new Byte[16];
-            //Byte[] data = new Byte[16];
 
             bool fileComplete = false;
 
@@ -40,7 +36,7 @@ namespace AlexandriaServer
 
                 string command = Encoding.ASCII.GetString(incomingData, 0, bytesRead);
 
-                Console.WriteLine(command);
+                Console.WriteLine("Received command: " + command);
 
                 string[] commands = command.Split(seperators);
 
@@ -49,38 +45,32 @@ namespace AlexandriaServer
                     Console.WriteLine(x);
                 }
 
-                if (commands[0].Contains("GET"))
+                if (commands[0].Contains("get"))
                 {
-                    Console.WriteLine("Getting File! \n" + commands[1]+"test");
-                    //file = new File(commands[1], fileLocation);
-                    FileStream fs = new FileStream(commands[1], FileMode.Open);
-
-                    int currentPos = 0;
-
-                    Console.WriteLine(fs.Length);
-
-                    while (fileComplete==false)
+                    if (commands[1].Contains("fil"))
                     {
-                        //Console.WriteLine();
-                        byte[] bytes = new byte[fs.Length];
-                        int data = fs.Read(bytes, 0, (int)fs.Length);
+                        Console.WriteLine("Getting File: \n" + commands[2]);
+                        FileStream fs = new FileStream(commands[2], FileMode.Open);
 
-                        Console.WriteLine(Convert.ToString(bytes));
-                        stream.Write(bytes, 0, (int)fs.Length);
-                        //currentPos += 16;
-                        //if (currentPos >= fs.Length)
-                        //{
+                        Console.WriteLine("File is " + fs.Length + " bytes long \n");
+
+                        while (fileComplete == false)
+                        {
+                            byte[] bytes = new byte[fs.Length];
+                            int data = fs.Read(bytes, 0, (int)fs.Length);
+
+                            Console.WriteLine(Convert.ToString(bytes));
+                            stream.Write(bytes, 0, (int)fs.Length);
+                            stream.Flush();
                             Console.WriteLine("File Complete!");
                             fileComplete = true;
-                        //}
+                        }
 
-                    }
-
-                    if (fileComplete)
-                    {
-                        Console.WriteLine("File Complete!");
-
-                        stream.Close();
+                        if (fileComplete)
+                        {
+                            stream.Close();
+                            runServer();
+                        }
                     }
                 }
             }

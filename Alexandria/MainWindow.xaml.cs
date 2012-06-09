@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Threading;
 
 namespace Alexandria
 {
@@ -32,8 +33,7 @@ namespace Alexandria
 
         private void startTransfer_Btn_Click(object sender, RoutedEventArgs e)
         {
-            //alexandria.client.selectFile("test2.png", "");
-            alexandria.client.fileGet("test.png");
+            alexandria.client.command.fileGet("SS intro.avi", alexandria.client.networkStream);
         }
     }
 }

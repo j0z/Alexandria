@@ -21,6 +21,7 @@ namespace Alexandria
         {
             readConfig();
             client = new Client();
+            client.Start();
             //server = new Server();
             //server.runServer();
             
