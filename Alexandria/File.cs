@@ -15,12 +15,12 @@ namespace Alexandria
         private string downloadLocation;
         private bool finished;
 
-        public File(string name, string downloadLocation)
+        public File(string name)
         {
             this.Name = name;
             //this.totalfileSize = getSize();
             this.currentfileSize = 0L;
-            this.downloadLocation = downloadLocation;
+            this.downloadLocation = AlexandriaMain.config.downloadLocation;
             this.finished = false;
         }
 
@@ -39,7 +39,8 @@ namespace Alexandria
         {
             currentfileSize += data.Length;
 
-            FileStream fs = new FileStream(Name, FileMode.Append);
+            string path = System.IO.Path.Combine(downloadLocation, Name);
+            FileStream fs = new FileStream(path, FileMode.Append);
             BinaryWriter binaryWriter = new BinaryWriter(fs);
             binaryWriter.Write(data);
             binaryWriter.Close();

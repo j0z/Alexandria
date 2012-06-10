@@ -37,7 +37,7 @@ namespace Alexandria
 
                 if (commands[0].Contains("GET"))
                 {
-                    file = new File(commands[1], fileLocation);
+                    file = new File(commands[1]);
                     FileStream fs = new FileStream(commands[1], FileMode.Open);
 
                     int currentPos = 0;

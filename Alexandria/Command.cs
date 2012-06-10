@@ -13,25 +13,17 @@ namespace Alexandria
     {
 
         /// <summary>
-        /// Pings the server on the specified NetworkStream and returns
-        /// true if it receives a reply
+        /// Replies to the server's PING request.
         /// </summary>
         /// <param name="ns"></param>
         /// <returns></returns>
-        public bool Ping(NetworkStream ns)
+        public void Ping(NetworkStream ns)
         {
             StreamWriter sw = new StreamWriter(ns);
             StreamReader sr = new StreamReader(ns);
 
-            sw.Write("get:pin:ping");
+            sw.Write("put:pin:pong");
             sw.Flush();
-
-            string pong = sr.ReadLine();
-
-            if (pong == "put:pin:pong")
-                return true;
-            else
-                return false;
         }
 
         /// <summary>
@@ -105,7 +97,7 @@ namespace Alexandria
         public void fileGet(string fileName, NetworkStream ns)
         {
             StreamWriter sw = new StreamWriter(ns);
-            File file = new File(fileName, "");
+            File file = new File(fileName);
 
             sw.Write("get:fil:" + fileName);
             sw.Flush();

@@ -11,7 +11,7 @@ namespace Alexandria
     class AlexandriaMain
     {
 
-        public Config config = new Config();
+        public static Config config = new Config();
         public Client client;
         //public Server server;
 

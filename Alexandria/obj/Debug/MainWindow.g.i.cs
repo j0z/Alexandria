@@ -47,6 +47,14 @@ namespace Alexandria {
         #line default
         #line hidden
         
+        
+        #line 7 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.ListBox fileBox;
+        
+        #line default
+        #line hidden
+        
         private bool _contentLoaded;
         
         /// <summary>
@@ -85,6 +93,9 @@ namespace Alexandria {
             
             #line default
             #line hidden
+            return;
+            case 2:
+            this.fileBox = ((System.Windows.Controls.ListBox)(target));
             return;
             }
             this._contentLoaded = true;

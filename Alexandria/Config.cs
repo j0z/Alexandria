@@ -37,7 +37,7 @@ namespace Alexandria
         public Config()
         {
             _nodeName = "default";
-            _downloadLocation = "downloads";
+            _downloadLocation = System.IO.Directory.GetCurrentDirectory() + @"\downloads\";
         }
 
     }

@@ -3,7 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button x:Name="startTransfer_Btn" Content="Start Transfer" HorizontalAlignment="Left" Margin="210,219,0,0" VerticalAlignment="Top" Width="75" Click="startTransfer_Btn_Click"/>
+        <Button x:Name="startTransfer_Btn" Content="Start Transfer" HorizontalAlignment="Left" Margin="214,281,0,0" VerticalAlignment="Top" Width="75" Click="startTransfer_Btn_Click"/>
+        <ListBox x:Name="fileBox" HorizontalAlignment="Left" Height="264" Margin="10,37,0,0" VerticalAlignment="Top" Width="184"/>
+        <Label Content="Files" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="184"/>
 
     </Grid>
 </Window>

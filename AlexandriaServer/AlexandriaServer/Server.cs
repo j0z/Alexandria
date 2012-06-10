@@ -11,11 +11,13 @@ namespace AlexandriaServer
 {
     class Server
     {
+        public static string fileLocation = System.Environment.CurrentDirectory + @"\files\";
         TcpListener tcpListener = new TcpListener(8080);
+        serverCommand server = new serverCommand();
+        NetworkStream stream;
 
         char[] seperators = { ':' };
 
-        string fileLocation = "\\files";
 
         public void runServer()
         {
@@ -30,7 +32,7 @@ namespace AlexandriaServer
             {
                 TcpClient tcpClient = tcpListener.AcceptTcpClient();
                 Console.WriteLine("Client Connected!");
-                NetworkStream stream = tcpClient.GetStream();
+                stream = tcpClient.GetStream();
                 byte[] incomingData = new byte[tcpClient.ReceiveBufferSize];
                 int bytesRead = stream.Read(incomingData, 0, System.Convert.ToInt32(tcpClient.ReceiveBufferSize));
 
@@ -45,39 +47,37 @@ namespace AlexandriaServer
                     Console.WriteLine(x);
                 }
 
-                if (commands[0].Contains("get"))
+                switch (commands[0])
                 {
-                    if (commands[1].Contains("fil"))
-                    {
-                        Console.WriteLine("Getting File: \n" + commands[2]);
-                        FileStream fs = new FileStream(commands[2], FileMode.Open);
-
-                        Console.WriteLine("File is " + fs.Length + " bytes long \n");
-
-                        while (fileComplete == false)
-                        {
-                            byte[] bytes = new byte[fs.Length];
-                            int data = fs.Read(bytes, 0, (int)fs.Length);
-
-                            Console.WriteLine(Convert.ToString(bytes));
-                            stream.Write(bytes, 0, (int)fs.Length);
-                            stream.Flush();
-                            Console.WriteLine("File Complete!");
-                            fileComplete = true;
-                        }
-
-                        if (fileComplete)
-                        {
-                            stream.Close();
-                            runServer();
-                        }
-                    }
+                    case "get":
+                        get(commands[1], commands[2]);
+                        break;
+                    case "put":
+                        put(commands[1], commands[2]);
+                        break;
+                    default:
+                        Console.WriteLine("Invalid command received");
+                        break;
                 }
             }
         }
 
-        public void sendFile(string fileName)
+        public void get(string variable, string data)
         {
+            switch (variable)
+            {
+                case "inf":
+                    server.Ping(stream);
+                    break;
+                case "fil":
+                    server.sendFile(fileLocation+data, stream);
+                    break;
+            }
+        }
+
+        public void put(string variable, string data)
+        {
+
         }
     }
 }
