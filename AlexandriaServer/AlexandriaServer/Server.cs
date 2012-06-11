@@ -12,6 +12,7 @@ namespace AlexandriaServer
     class Server
     {
         public static string fileLocation = System.Environment.CurrentDirectory + @"\files\";
+        public static FileList fileList = new FileList();
         TcpListener tcpListener = new TcpListener(8080);
         serverCommand server = new serverCommand();
         NetworkStream stream;
@@ -21,9 +22,27 @@ namespace AlexandriaServer
 
         public void runServer()
         {
+            StreamReader fileListReader;
+
             Console.WriteLine("Alexandria-Server 0.02a \n Written by: \n j0z");
             Console.WriteLine("Starting server...");
             tcpListener.Start();
+            Console.WriteLine("Loading filelist...");
+
+            if (File.Exists("fileList.txt"))
+            {
+                fileList.loadFileList();
+                Console.WriteLine("Loaded filelist!");
+            }
+            else
+            {
+                Console.WriteLine("Filelist not found, creating...");
+                fileList.createFileList();
+                Console.WriteLine("Filenames: \n" + fileList.name[0]);
+                Console.WriteLine("File sizes: \n" + fileList.size[0]);
+                Console.WriteLine("Created filelist!");
+            }
+
             Console.WriteLine("Server Started!");
 
             bool fileComplete = false;
@@ -71,6 +90,10 @@ namespace AlexandriaServer
                     break;
                 case "fil":
                     server.sendFile(fileLocation+data, stream);
+                    break;
+                case "fli":
+                    Console.WriteLine("Sending filelist");
+                    server.List(stream);
                     break;
             }
         }

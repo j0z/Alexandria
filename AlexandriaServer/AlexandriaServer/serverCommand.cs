@@ -88,16 +88,14 @@ namespace AlexandriaServer
         }
 
         /// <summary>
-        /// not implimented yet, will throw a NotImplimentedException
+        /// Sends a JSON'd list of files and their sizes to the specified network stream.
         /// </summary>
         /// <param name="ns"></param>
         public void List(NetworkStream ns)
         {
-            throw new NotImplementedException();
-
-
+            StreamWriter sw = new StreamWriter(ns);
+            sw.WriteLine("put:fli:" + AlexandriaServer.Server.fileList.list());
+            sw.Flush();
         }
-            
-
     }
 }

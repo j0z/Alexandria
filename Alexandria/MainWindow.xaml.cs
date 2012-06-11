@@ -35,5 +35,11 @@ namespace Alexandria
         {
             alexandria.client.command.fileGet("SS intro.avi", alexandria.client.networkStream);
         }
+
+        private void debug_getListButton_Click(object sender, RoutedEventArgs e)
+        {
+            string fileList = alexandria.client.command.List(alexandria.client.networkStream);
+            debug_FileListBox.Text = fileList;
+        }
     }
 }

@@ -125,8 +125,7 @@ namespace Alexandria
 
         /// <summary>
         /// Requests the list of files from the server. 
-        /// Server responds with a JSON string containing 32 entries
-        /// When all entries have been received, it sends "PUT:FLI:OKAY"
+        /// Server responds with a JSON string containing the files and their sizes
         /// </summary>
         /// <param name="ns"></param>
         /// <returns></returns>
@@ -135,15 +134,11 @@ namespace Alexandria
             StreamWriter sw = new StreamWriter(ns);
             StreamReader sr = new StreamReader(ns);
 
-            int currentFile = 0;
+            //int currentFile = 0;
             string fileList = "";
-
-            while (sr.ReadLine() != "put:fli:okay")
-            {
-                sw.Write("get:fli:" + currentFile.ToString());
-                fileList += sr.ReadLine().Remove(0, 9);
-            }
-
+                sw.Write("get:fli:list");
+                sw.Flush();
+                fileList = sr.ReadLine().Remove(0, 9);
             return fileList;
         }
     }
